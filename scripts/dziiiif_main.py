@@ -51,11 +51,11 @@ if ((not glo.report_flag) and (glo.status == glo.status_code.OK)) :
         print('')
         print('{')
         print('\t"@context": "http://iiif.io/api/image/2/context.json",')
-        print('\t"@id": "'+glo.id_uri+'",')
+        print('\t"@id": "'+glo.id_uri+'/'+glo.identifier+'",')
         print('\t"protocol": "http://iiif.io/api/image",')
         print('\t"width": '+str(glo.dzi_w)+",")
         print('\t"height": '+str(glo.dzi_h)+",")
-        print('\t"profile": { "http://iiif.io/api/image/2/level1.json" }')
+        print('\t"profile": [ "http://iiif.io/api/image/2/level1.json" ]')
         print('}')
     #fi
 else:

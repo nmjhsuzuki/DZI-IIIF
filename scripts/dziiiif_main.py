@@ -1,3 +1,5 @@
+#!/usr/local/bin/python3
+
 # coding: utf-8
 
 # ======================================================================
@@ -5,6 +7,7 @@
 # DeepZoom(dzi)形式のファイルをIIIF Image APIでアクセスできるようにする
 # ======================================================================
 # 2020-05-21 Ver.0.1: Initial Version, No info.json handling.
+# 2020-05-22 Ver.0.2: Add info.json handling.
 # ======================================================================
 # dziiiif_main.py: メインモジュール
 # ======================================================================
@@ -27,18 +30,34 @@ para.get(cgi.FieldStorage())
 # 画像の読み込みと加工
 import dziiiif_dzifile as dzi
 if (glo.status == glo.status_code.OK) : dzi.getxmlinfo()
-if (glo.status == glo.status_code.OK) : dzi.getregion()
-if (glo.status == glo.status_code.OK) : dzi.getsize()
-if (glo.status == glo.status_code.OK) : dzi.makeoutputimage()
+if (glo.query == glo.query.IMAGE):
+    if (glo.status == glo.status_code.OK) : dzi.getregion()
+    if (glo.status == glo.status_code.OK) : dzi.getsize()
+    if (glo.status == glo.status_code.OK) : dzi.makeoutputimage()
+#fi
 
 # 出力
-print ('Status: '+str(glo.status.value)+' '+glo.status_str[glo.status])
+print('Status: '+str(glo.status.value)+' '+glo.status_str[glo.status])
 if ((not glo.report_flag) and (glo.status == glo.status_code.OK)) :
-    print('Content-Type: '+glo.format_mimetype[glo.format])
-    print('Content-Length: %d' % glo.outstream_size)
-    print('')
-    sys.stdout.flush()
-    sys.stdout.buffer.write(glo.outstream)
+    if (glo.query == glo.query_mode.IMAGE): # 画像リクエストへの返信
+        print('Content-Type: '+glo.format_mimetype[glo.format])
+        print('Content-Length: %d' % glo.outstream_size)
+        print('')
+        sys.stdout.flush()
+        sys.stdout.buffer.write(glo.outstream)
+    else: # 画像情報リクエストへの返信
+        print('Content-Type: application/json; charset=UTF-8')
+        print('Access-Control-Allow-Origin: *')
+        print('')
+        print('{')
+        print('\t"@context": "http://iiif.io/api/image/2/context.json",')
+        print('\t"@id": "'+glo.id_uri+'",')
+        print('\t"protocol": "http://iiif.io/api/image",')
+        print('\t"width": '+str(glo.dzi_w)+",")
+        print('\t"height": '+str(glo.dzi_h)+",")
+        print('\t"profile": { "http://iiif.io/api/image/2/level1.json" }')
+        print('}')
+    #fi
 else:
     print ('Content-Type: text/html; charset=UTF-8')
     print ('')

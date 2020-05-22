@@ -1,3 +1,5 @@
+#!/usr/local/bin/python3
+
 # coding: utf-8
 
 # ======================================================================
@@ -5,6 +7,7 @@
 # DeepZoom(dzi)形式のファイルをIIIF Image APIでアクセスできるようにする
 # ======================================================================
 # 2020-05-21 Ver.0.1: Initial Version, No info.json handling.
+# 2020-05-22 Ver.0.2: Add info.json handling.
 # ======================================================================
 # dziiiif_common.py: グローバル変数の定義
 # ======================================================================
@@ -14,14 +17,18 @@ from enum import Enum # 列挙型を使う
 # システム定数
 # -------------
 
+# 画像情報リクエストで返す基底URI
+id_uri = ''
+
 # pythonスクリプトディレクトリへのパス
 scripts_path = ''
 # データディレクトリへのパス
 data_path = ''
 # ログディレクトリへのパス
 logs_path = ''
+
 # 作成する画像の一辺のピクセル値の上限
-wh_max = 5000 
+wh_max = 4000 
 
 # -----------
 # ステータス
@@ -62,6 +69,13 @@ iiif = ''
 
 # 画像の識別子 = DZI画像格納フォルダへのパス
 identifier = ''
+
+# 画像リクエストか画像情報リクエストか
+class query_mode(Enum) :
+    IMAGE = 1
+    INFO = 2
+#ssalc
+query = query_mode.IMAGE
 
 # 取得する領域
 class region_mode(Enum) :
@@ -253,6 +267,7 @@ def gloprint(lf='') : # 改行記号 lf を付与できる
 #    global outimage, outimage_quality, outstream, outstream_size
     print('[global variables]'+lf)
     print('[constants]'+lf)
+    print('id_uri='+id_uri+lf)
     print('scripts_path='+scripts_path+lf)
     print('data_path='+data_path+lf)
     print('logs_path='+logs_path+lf)
@@ -265,6 +280,7 @@ def gloprint(lf='') : # 改行記号 lf を付与できる
     print('[iiif parameters]'+lf)
     print('iiif='+iiif+lf)
     print('identifier='+identifier+lf)
+    print('query='+query.name+lf)
     print('region='+region.name+': '+regiontostr(region_x, region_y, region_w, region_h)+lf)
     print('size='+size.name+': '+sizetostr(size_w, size_h)+'; '+str(size_percent)+'%'+lf)
     print('rotate='+str(rotate)+lf)

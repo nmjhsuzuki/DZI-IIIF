@@ -25,8 +25,8 @@ indata_path = os.path.join(os.getcwd(), 'data.json')
 # 出力: json ファイル (utf-8)
 # manifest は <identifier>.json という名前で作られる．
 # 出力ディレクトリ
-#outdata_dir_path = os.getcwd()
-outdata_dir_path =os.path.join('C:'+os.sep, 'inetpub', 'wwwroot', 'IIIF')
+outdata_dir_path = os.path.join(os.getcwd(), 'output')
+#outdata_dir_path = os.path.join('C:'+os.sep, 'inetpub', 'wwwroot', 'IIIF')
     
 # info.json を問い合わせる IIIF サーバ の URI
 iiif_server_uri_header = 'http://localhost/cgi-bin/dzi-iiif.cgi?IIIF='

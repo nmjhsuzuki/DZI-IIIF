@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+<TITLE>DZI-IIIF Parameter Test</TITLE>
+</HEAD>
+<BODY>
+<H1>DZI-IIIF Parameter Test</H1>
+<P>パラメタを正しく受け取っているかのテスト．</P>
+<P>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/id1/full/full/0/default">id1/full/full/0/default</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/id1/0,10,100,200/pct:50/90/default.png">id1/0,10,100,200/pct:50/90/default.png</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/id1/pct:10,10,80,80/50,/22.5/color.jpg">id1/pct:10,10,80,80/50,/22.5/color.jpg</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/bb157hs6068/full/full/270/gray.jpg">bb157hs6068/full/full/270/gray.jpg</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/ark:%2F12025%2F654xz321/full/full/0/default">ark:%2F12025%2F654xz321/full/full/0/default</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/urn:foo:a123,456/full/full/0/default">urn:foo:a123,456/full/full/0/default</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/urn:sici:1046-8188(199501)13:1%253C69:FTTHBI%253E2.0.TX%3B2-4/full/full/0/default">urn:sici:1046-8188(199501)13:1%253C69:FTTHBI%253E2.0.TX%3B2-4/full/full/0/default</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/http:%2F%2Fexample.com%2F%3F54%23a/full/full/0/default">http:%2F%2Fexample.com%2F%3F54%23a/full/full/0/default</A><BR/>
+</P>
+<P>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi">No parameter（エラー）</A><BR/><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/Illegal/full/full/0/default.jpg">XMLファイルが不正（エラー）</A><BR/><BR/>
+</P>
+</BODY>
+</HTML>

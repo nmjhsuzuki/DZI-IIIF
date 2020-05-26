@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+<TITLE>DZI-IIIF Image API test</TITLE>
+</HEAD>
+<BODY>
+<H1>DZI-IIIF Image API test</H1>
+<P>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/Newcastle/info.json">画像情報リクエスト</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/Newcastle/full/full/0/default.jpg">実寸（エラー）</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/Newcastle/full/1000,/0/default.jpg">横1000ドット</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/Newcastle/full/1000,/0/default.jpg&REPORT=t">横1000ドット（情報）</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/Newcastle/full/2000,/0/default.jpg">横2000ドット</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/Newcastle/full/2000,/0/default.jpg&REPORT=t">横2000ドット（情報）</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/Newcastle/full/,400/0/default.jpg">縦400ドット</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/Newcastle/full/,400/0/default.jpg&REPORT=t">縦400ドット（情報）</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/Newcastle/full/,800,/0/default.jpg">縦800ドット</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/Newcastle/full/,800,/0/default.jpg&REPORT=t">縦800ドット（情報）</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/Newcastle/full/pct:5/0/default.jpg">倍率5%</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/Newcastle/full/pct:5/0/default.jpg&REPORT=t">倍率5%（情報）</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/Newcastle/5000,2000,1000,800/full/0/default.jpg">領域(5000,2000,1000,800)</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/Newcastle/5000,2000,1000,800/full/0/default.jpg&REPORT=t">領域(5000,2000,1000,800)（情報）</A><BR/>
+<A href="http://localhost/cgi-bin/dzi-iiif.cgi?IIIF=/Newcastle/pct:30,30,5,5/full/0/default.jpg&REPORT=t">領域(pct:30%,30%,5%,5%)（サポート外）（情報）</A><BR/>
+</P>
+</BODY>
+</HTML>

@@ -30,7 +30,7 @@ else: # Mac or Linux
 #    dpath = os.path.join(os.sep, 'var', 'DZI-IIIF', 'images') # データディレクトリへのパス
 #    lpath = os.path.join(os.sep, 'var', 'log', 'DZI-IIIF') # ログディレクトリへのパス
 # 個人アカウント単位のインストールサンプル
-    lpath = os.path.join('~user', 'DZI-IIIF')
+    lpath = os.path.join(os.path.expanduser('~user'), 'DZI-IIIF')
     spath = os.path.join(lpath, 'scripts') # pythonスクリプトディレクトリへのパス
     dpath = os.path.join(lpath, 'images') # データディレクトリへのパス
     lpath = os.path.join(lpath, 'logs') # ログディレクトリへのパス

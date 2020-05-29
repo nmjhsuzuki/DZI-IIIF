@@ -11,7 +11,8 @@
 # ======================================================================
 
 # 解釈する文字列
-# IIIF=[/]<identifier (including '/')>/<region>/<size>/<rotate>/<quality>.<format> （必須）
+# IIIF=[/]<identifier (including '/')>/<region>/<size>/<rotate>/<quality>.<format> （必須；画像リクエストの場合）
+# IIIF=[/]<identifier (including '/')>/info.json（必須；画像情報リクエストの場合）
 # REPORT=<any> （任意；画像ではなく処理情報を表示；デバッグモードOnでのみ有効，値は任意だが何かは必要）
 # * 20200514 メモ suzuki
 # IIIF Image API の仕様では，identifier が / を含むときはURI encoding されていないと
@@ -43,6 +44,7 @@ def readregion(s):
     d['w'] = glo.readint(t[2] if (n >= 3) else '')
     d['h'] = glo.readint(t[3] if (n >= 4) else '')
     return d
+#fed
 
 # percentregion(x,y,w,h)の読み込み
 # 辞書を返す
@@ -61,6 +63,7 @@ def readpercentregion(s):
     d['w'] = glo.readfloat(t[2] if (n >= 3) else '')
     d['h'] = glo.readfloat(t[3] if (n >= 4) else '')
     return d
+#fed
 
 # size(w,h)の読み込み
 def readsize(s):
@@ -70,10 +73,12 @@ def readsize(s):
     d['w'] = glo.readint(t[0]) if (n >= 1) else -1
     d['h'] = glo.readint(t[1]) if (n >= 2) else -1
     return d
+#fed
 
 # percentの読み込み
 def readpercent(s):
     return glo.readfloat(s)
+#fed
 
 # 文字列からのパラメタの取得
 def get(s) :

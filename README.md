@@ -21,7 +21,7 @@
 　Apache のリダイレクション機能を使って，cgi呼び出しを見せないようにすることもできます．  
 　　[http://nmjhsuzuki.xii.jp/dzi/Newcastle/full/1000,/0/default.jpg](http://nmjhsuzuki.xii.jp/dzi/Newcastle/full/1000,/0/default.jpg)  
 　　[http://nmjhsuzuki.xii.jp/dzi/Newcastle/5508,3672,5184,3456/1000,/0/default.jpg](http://nmjhsuzuki.xii.jp/dzi/Newcastle/5508,3672,5184,3456/1000,/0/default.jpg)  
-　　[http://nmjhsuzuki.xii.jp/dzi/Newcastle/info.json](http://nmjhsuzuki.xii.jp/dzi/Newcastle/info.json)
+　　[http://nmjhsuzuki.xii.jp/dzi/Newcastle/info.json](http://nmjhsuzuki.xii.jp/dzi/Newcastle/info.json) 
 
 # 特徴 (Features)
 
@@ -255,7 +255,7 @@ dbg = False
 
 # その他 (Note)
 
-　最初のバージョンを 2020年6月1日に公開しました．
+　最初のバージョンを 2020年6月1日に公開しました．  
 　レベル２準拠への対応まで行なう予定です．
 
 # 作者情報 (Author)

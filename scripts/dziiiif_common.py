@@ -44,6 +44,7 @@ class status_code(Enum) :
     BAD_REQUEST = 400
     NOT_FOUND = 404
     INTERNAL_SERVER_ERROR = 500
+#ssalc
 status_str = {
     status_code.OK: "OK", 
     status_code.BAD_REQUEST: "Bad Request", 
@@ -81,6 +82,7 @@ class region_mode(Enum) :
     square = 2
     pixel = 3
     percent = 4
+#ssalc
 region = region_mode.full
 region_x = 0 # 左: pixel or percent で使用
 region_y = 0 # 上: pixel or percent で使用
@@ -96,6 +98,7 @@ class size_mode(Enum) :
     percent = 5
     wh = 6
     wh_align = 7
+#ssalc
 size = size_mode.full
 size_w = 0
 size_h = 0
@@ -126,6 +129,7 @@ class format_code(Enum) :
     JP2 = 5
     PDF = 6
     WEBP = 7
+#ssalc
 format_strtocode = {
     'jpg': format_code.JPG,
     'tif': format_code.TIF,
@@ -218,7 +222,6 @@ outstream_size = 0
 # for debug
 inimage_path =''
 
-
 # -----
 # 関数
 # -----
@@ -229,6 +232,8 @@ def readint(s, default=-1):
         return int(s)
     except ValueError:
         return default
+    #yrt
+#fed
 
 # 文字列から小数値の読み取り（読めない時はdefault = -1を返す)
 def readfloat(s, default=-1):
@@ -236,6 +241,8 @@ def readfloat(s, default=-1):
         return float(s)
     except ValueError:
         return default
+    #yrt
+#fed
 
 # ステータスが最初に変わった場所を記録
 def change_status_at(sc, at):
@@ -249,10 +256,12 @@ def change_status_at(sc, at):
 # 領域の文字列化
 def regiontostr(x, y, w, h):
     return str(x)+', '+str(y)+', '+str(w)+', '+str(h)
+#fed
 
 # サイズの文字列化
 def sizetostr(w, h):
     return str(w)+', '+str(h)
+#fed
 
 # グローバル変数の表示
 def gloprint(lf='') : # 改行記号 lf を付与できる

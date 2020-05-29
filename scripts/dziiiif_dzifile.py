@@ -54,6 +54,7 @@ def tryXMLparse(s):
         return ET.parse(s).getroot()
     except ET.ParseError:
         return ET.fromstring('<X xmlns="Illegal_XML_file"></X>')
+    #yrt
 #fed
 
 # XMLファイルの読み込み
@@ -92,10 +93,12 @@ def getxmlinfo():
 # x を 0 <= x < dzi_w の範囲に収める
 def adjustX(x):
     return min(max(x, 0), glo.dzi_w - 1)
+#fed
 
 # y を 0 <= y < dzi_h の範囲に収める
 def adjustY(y):
     return min(max(y, 0), glo.dzi_h - 1)
+#fed
 
 # 切り取る画像領域の確定
 def getregion():
@@ -176,7 +179,6 @@ def getsize():
     if (glo.outimage_w > glo.wh_max or glo.outimage_h > glo.wh_max): # 画像サイスが制限を超えている
         glo.change_status_at(glo.status_code.BAD_REQUEST, 'dzifile.getsize; outimage_w > wh_max || outimage_h > wh_max')
     #fi
-
 #fed
 
 # 出力ファイルの生成
@@ -235,4 +237,3 @@ def makeoutputimage():
         glo.outstream_size = len(glo.outstream)
     #fi
 #fed
-

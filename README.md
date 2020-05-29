@@ -1,10 +1,12 @@
 # [DZI-IIIF](https://github.com/nmjhsuzuki/DZI-IIIF)
 
-　Deep Zoom 形式(DZI)画像を，IIIF Image API に沿って呼び出せるようにするための Web CGI です．画像リクエストと画像情報リクエストの双方に対応しています．Python3 で書かれています．
+# 特徴 (Features)
 
-　Web CGI for giving IIIF Image API Interface to Deep Zoom image (DZI).
+　[DZI-IIIF](https://github.com/nmjhsuzuki/DZI-IIIF)は，Deep Zoom 形式(DZI)画像を IIIF Image API に沿って呼び出せるようにするための Web CGI です．画像リクエストと画像情報リクエストの双方に対応しています．Python3 で書かれています．現在はレベル１準拠です．
 
-# デモンストレーション (DEMO)
+　[DZI-IIIF](https://github.com/nmjhsuzuki/DZI-IIIF) is a Web CGI for giving IIIF Image API Interface to Deep Zoom images (DZI). Both of image request and image information request are acceptable. It is written in Python3. It has IIIF Image API Compliance Level 1.
+
+# デモンストレーション (Demonstration)
 
 　Newcastle という名前の Deep Zoom 画像を取得してみます．12枚のスナップ写真を並べたものです．
 
@@ -23,17 +25,18 @@
 　　[http://nmjhsuzuki.xii.jp/dzi/Newcastle/5508,3672,5184,3456/1000,/0/default.jpg](http://nmjhsuzuki.xii.jp/dzi/Newcastle/5508,3672,5184,3456/1000,/0/default.jpg)  
 　　[http://nmjhsuzuki.xii.jp/dzi/Newcastle/info.json](http://nmjhsuzuki.xii.jp/dzi/Newcastle/info.json) 
 
-# 特徴 (Features)
+# 背景 (Background)
 
 　[IIIF (International Image Interoperability Framework)](https://iiif.io) は，画像へのアクセスを標準化し相互運用性を確保するための国際的なコミュニティ活動です([Wikipedia](https://ja.wikipedia.org/wiki/International_Image_Interoperability_Framework)より)．画像へのアクセス方法は [IIIF Image API](https://iiif.io/api/image/2.1/) によって規定されています．  
 　[Deep Zoom](https://en.wikipedia.org/wiki/Deep_Zoom) は，Microsoft が開発した，任意の大きさの画像を取り扱える画像技術の一つです．現在では，[Openseadragon](https://openseadragon.github.io) を用いて，PC・タブレット・スマートフォン等の Web ブラウザ上に画像を表示することができます．  
 　私が務める[国立歴史民俗博物館（歴博）](https://www.rekihaku.ac.jp) では，屏風や絵巻などの一辺が数万～数十万画素に及ぶ画像を，どこでも任意の倍率で表示する超大画像ビューワを2000年に開発し，常設展示・企画展示等で来館者の利用に供してきました．2016年ごろから Opensedragon を用いたビューワへ移行し，画像の保持形式として Deep Zoom 形式を用いています．  
 　歴博の資料画像をより多くの方々に使っていただくためには，IIIFへの対応が不可欠と考えていますが，Deep Zoom 形式を取り扱える IIIF 画像サーバがなぜか見つけられませんでした．ならば，ということで，Python の勉強を兼ねて作ってみました．  
-　現在はレベル１準拠です．
 
 # 必要な環境 (Requirement)
 
 　Python3 が必要です．Pillow も必要なので pip install Pillow しておいてください．  
+　Web サーバに CGI として登録して，呼び出して使います．  
+
 　Windows10 Professional 64bit（バージョン1909）上で，以下の環境でテストしています．
 
 * IIS 10.0.18362.1
@@ -53,7 +56,7 @@
 
 ## Windows10(+IIS)へのインストール
 
-Windows10 PC 上でIISを用いてローカルでテストすることを想定しています．
+　Windows10 PC 上でIISを用いてローカルでテストすることを想定しています．
 
 ### (1) IIS をインストールする
 
@@ -82,10 +85,10 @@ C:\>git clone https://github.com/nmjhsuzuki/DZI-IIIF.git
 
 ### (3) images フォルダにDZIファイルを置く
 
-[DZICONV](https://github.com/nmjhsuzuki/DZICONV)を使って，サンプルとなるDZIファイル"Newcastle"を作ることができます．
+[DZICONV](https://github.com/nmjhsuzuki/DZICONV)を使って，サンプルとなるDZIファイル"Newcastle"を作ることができます．ここでは D:\ にDZICONVを git clone します．
 
 ```Batchfile
-D:\>git clone https://github.com/nmjhsuzuki/DZICONV
+D:\>git clone https://github.com/nmjhsuzuki/DZICONV.git
 ...
 D:\DZICONV>python dziconv.py .\input\Newcastle\index.csv .\output
 ...
@@ -162,27 +165,29 @@ dbg = False
 
 ## さくらのレンタルサーバへのインストール
 
+　Unix/Linux 系統のOSならインストールはほぼ同様の手順になると思います．  
 　ここでは，サーバ名 nmjhsuzuki.xii.jp，ユーザ名 nmjhsuzuki，ホームディレクトリ /home/nmjhsuzuki とします．  
 　また，さくらのレンタルサーバではpython3がインストールされていないため，ここでは ~/python にインストールしてあるものとします．  
-　Unix/Linux 系統のOSならインストールはほぼ同様の手順になると思います．
 
 ### (1) git clone する
 
 　ここでは，ホームディレクトリに DZI-IIIF を展開するものとします．
 
 ```Tcsh
-/home/nmjhsuzuki% git clone https://github.com/nmjhsuzuki/DZI-IIIF
+/home/nmjhsuzuki% git clone https://github.com/nmjhsuzuki/DZI-IIIF.git
 ```
 
 ### (2) images フォルダにDZIファイルを置く
 
-　[DZICONV](https://github.com/nmjhsuzuki/DZICONV)を使って，サンプルとなるDZIファイル"Newcastle"を作ることができます．
-DZICONVもホームディレクトリに展開するものとします．サンプルの画像データが同梱されていますので，DZI画像を作ってみましょう．
+　[DZICONV](https://github.com/nmjhsuzuki/DZICONV)を使って，サンプルとなるDZIファイル"Newcastle"を作ることができます．  
+　DZICONVもホームディレクトリに git clone するものとします．サンプルの画像データが同梱されていますので，DZI画像を作ってみましょう．  
+　※./input/Newcastle/index.csv 内のパス区切り文字の変更をお忘れなく！
 
 ```Batchfile
-/home/nmjhsuzuki% git clone https://github.com/nmjhsuzuki/DZICONV
+/home/nmjhsuzuki% git clone https://github.com/nmjhsuzuki/DZICONV.git
 ...
 /home/nmjhsuzuki% cd DZICONV
+...(注意: ./input/Newcastle/index.csv 内のパス区切り文字を \ から /  に書き換えること)...
 /home/nmjhsuzuki/DZICONV% python3 dziconv.py ./input/Newcastle/index.csv ./output
 ...
 /home/nmjhsuzuki/DZICONV% cp -R ./output/Newcastle ~/DZI-IIIF/images/Newcastle

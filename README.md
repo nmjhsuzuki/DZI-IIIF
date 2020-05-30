@@ -268,6 +268,7 @@ dbg = False
 * 鈴木卓治 (SUZUKI, Takuzi)
 * 国立歴史民俗博物館 (National Museum of Japanese History, Chiba, JAPAN)
 * Email: suzuki@rekihaku.ac.jp
+* Twitter: @digirekiten （デジタルで楽しむ歴史資料 https://twitter.com/digirekiten ）
 
 # ライセンス (License)
 

@@ -40,8 +40,8 @@ else: # Mac or Linux
 whmax = 2000
 
 # デバッグモードを設定
-#dbg = False
-dbg = True
+dbg = False
+#dbg = True
 
 # --- 利用者環境に応じて設定する情報 ここまで ---
 

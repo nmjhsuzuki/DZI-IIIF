@@ -38,10 +38,11 @@ else: # Mac or Linux
 
 # 作成する画像の一辺のピクセル値の上限
 whmax = 2000
+#whmax = 8000
 
 # デバッグモードを設定
-dbg = False
-#dbg = True
+#dbg = False
+dbg = True
 
 # --- 利用者環境に応じて設定する情報 ここまで ---
 

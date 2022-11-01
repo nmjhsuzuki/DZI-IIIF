@@ -70,6 +70,12 @@ else:
     print ('Status: '+str(glo.status.value)+' '+glo.status_str[glo.status])
     print ('<BR/><BR/>')
     glo.htmlprint()
+    if (glo.debug):
+        print ('<BR/><BR/>')
+        #cgi.print_environ()
+        import os
+        print(os.environ['HTTP_ACCEPT'])
+    #fi
     print ('</P>')
     print ('</BODY>')
     print ('</HTML>')

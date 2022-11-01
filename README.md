@@ -29,7 +29,7 @@
 
 　[IIIF (International Image Interoperability Framework)](https://iiif.io) は，画像へのアクセスを標準化し相互運用性を確保するための国際的なコミュニティ活動です([Wikipedia](https://ja.wikipedia.org/wiki/International_Image_Interoperability_Framework)より)．画像へのアクセス方法は [IIIF Image API](https://iiif.io/api/image/2.1/) によって規定されています．  
 　[Deep Zoom](https://en.wikipedia.org/wiki/Deep_Zoom) は，Microsoft が開発した，任意の大きさの画像を取り扱える画像技術の一つです．現在では，[Openseadragon](https://openseadragon.github.io) を用いて，PC・タブレット・スマートフォン等の Web ブラウザ上に画像を表示することができます．  
-　私が務める[国立歴史民俗博物館（歴博）](https://www.rekihaku.ac.jp) では，屏風や絵巻などの一辺が数万～数十万画素に及ぶ画像を，どこでも任意の倍率で表示する超大画像ビューワを2000年に開発し，常設展示・企画展示等で来館者の利用に供してきました．2016年ごろから Opensedragon を用いたビューワへ移行し，画像の保持形式として Deep Zoom 形式を用いています．  
+　私が勤める[国立歴史民俗博物館（歴博）](https://www.rekihaku.ac.jp) では，屏風や絵巻などの一辺が数万～数十万画素に及ぶ画像を，どこでも任意の倍率で表示する超大画像ビューワを2000年に開発し，常設展示・企画展示等で来館者の利用に供してきました．2016年ごろから Openseadragon を用いたビューワへ移行し，画像の保持形式として Deep Zoom 形式を用いています．  
 　歴博の資料画像をより多くの方々に使っていただくためには，IIIFへの対応が不可欠と考えていますが，Deep Zoom 形式を取り扱える IIIF 画像サーバがなぜか見つけられませんでした．ならば，ということで，Python の勉強を兼ねて作ってみました．  
 
 # 必要な環境 (Requirement)
